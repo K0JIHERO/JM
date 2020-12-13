@@ -5,8 +5,7 @@ public class JavaCore228 {
         System.out.println(isPowerOfTwo(-2048));
     }
     public static boolean isPowerOfTwo(int value) {
-        value = Math.abs(value);
-        return Integer.bitCount(value) == 1;
+        return Integer.bitCount(Math.abs(value)) == 1;
     }
 }
 

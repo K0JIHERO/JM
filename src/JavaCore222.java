@@ -5,8 +5,9 @@ public class JavaCore222 {
 
     public static char charExpression ( int a){
         char b = '\\';
-        int c = b + a;
-        return (char) c;
+        int c = b;
+        System.out.println(c);
+        return (char) ('\\' + a);
     }
 
 //    public static char charExpression ( int a){
