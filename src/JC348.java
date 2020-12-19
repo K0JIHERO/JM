@@ -34,15 +34,18 @@ public class JC348 {
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (!(o instanceof ComplexNumber)) return false;
             ComplexNumber that = (ComplexNumber) o;
-            return Double.compare(that.re, re) == 0 &&
-                    Double.compare(that.im, im) == 0;
+            return Double.compare(that.getRe(), getRe()) == 0 &&
+                    Double.compare(that.getIm(), getIm()) == 0;
         }
 
+        @Override
+        public int hashCode() {
+            return Objects.hash(getRe(), getIm());
+        }
 
-
-        //
+//
 //        @Override
 //        public int hashCode() {
 //            final double prime = 31;
