@@ -79,6 +79,7 @@
 //        public TooLongTextAnalyzer(){
 //
 //        }
+
 //
 //        @Override
 //        public Label processText(String text) {

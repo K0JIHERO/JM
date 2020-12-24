@@ -14,10 +14,18 @@ public class JC418 {
     static void m3() {
         System.out.println(getCallerClassAndMethodName());    }
 
-    public static String getCallerClassAndMethodName() {
+    /* public static String getCallerClassAndMethodName() {
         StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
         if (stackTraceElements.length > 3) {
             return stackTraceElements[3].getClassName() + "#" + stackTraceElements[3].getMethodName();
+        }
+        return null;
+    } */
+
+    public static String getCallerClassAndMethodName() {
+        StackTraceElement[] stackTraceElements = new Exception().getStackTrace();
+        if (stackTraceElements.length > 2) {
+            return stackTraceElements[2].getClassName() + "#" + stackTraceElements[2].getMethodName();
         }
         return null;
     }

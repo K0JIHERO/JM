@@ -1,25 +1,18 @@
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.Scanner;
 
-class test {
-    public static void main(String[] args) throws IOException {
-        int totalBytesWritten = 0;
-        byte [] buf = new byte[1024];
-        int blockSize;
-
-        OutputStream outputStream = null;
-        while ((blockSize = inputStream.read(buf)) > 0) {
-            outputStream.write(buf, 0, blockSize);
-            totalBytesWritten += blockSize;
+public class test {
+    public static void main(String[] args) {
+        double summ = 0;
+        Scanner scan = new Scanner(System.in);
+        while (scan.hasNext()) {
+            try {
+                double data = Double.parseDouble(scan.next());
+                summ += data;
+            } catch (Exception e) {
+                continue;
+            }
         }
-    }
-    public abstract class InputStream implements Closeable {
-        public abstract int read() throws IOException;
-        public int read(byte b []) throws IOException {
-            return read(b, 0, b.length);
-        }
-
+        scan.close();
+        System.out.printf("%.6f", summ);
     }
 }
