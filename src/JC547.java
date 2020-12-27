@@ -52,10 +52,29 @@ public class JC547 {
             for (int i = 0; i < z; i++) {
                 array[i] = (Animal) objectInputStream.readObject();
             }
+            objectInputStream.close();
             return array;
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | NegativeArraySizeException | NullPointerException | ClassCastException | IOException e) {
             throw new IllegalArgumentException();
         }
     }
 }
+
+
+//    public static Animal[] deserializeAnimalArray(byte[] data){
+//        try {
+//            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);
+//            ObjectInputStream objectInputStream = null;
+//            objectInputStream = new ObjectInputStream(byteArrayInputStream);
+//            int z;
+//            z = objectInputStream.readInt();
+//            Animal [] array = new Animal [z];
+//            for (int i = 0; i < z; i++) {
+//                array[i] = (Animal) objectInputStream.readObject();
+//            }
+//            return array;
+//        } catch (IOException | ClassNotFoundException | NegativeArraySizeException | NullPointerException e) {
+//            throw new IllegalArgumentException();
+//        }
+//    }
 
