@@ -26,7 +26,7 @@ public class JC6113 {
     public static class DynamicArray <T> {
 
         public T[] array;
-        private int size;
+        private int size = 0;
         private int index = 0;
 
         public DynamicArray() {
@@ -38,16 +38,19 @@ public class JC6113 {
         }
 
         public void add(T el) {
-
+//            T [] newArray = Arrays.copyOf(array, array.length + 1);
+//            newArray [array.length] = el;
+//            array = Arrays.copyOf(newArray, newArray.length);
             array = Arrays.copyOf(array, array.length + 1);
             array [index++] = el;
         }
 
         public void remove(int index) {
-            T [] newArray = (T[])new Object[array.length - 1];
-            System.arraycopy(array, 0, newArray, 0, index);
-            System.arraycopy(array, index + 1, newArray, index, array.length - index - 1);
-            array = newArray;
+//            T [] newArray = (T[])new Object[array.length - 1];
+//            System.arraycopy(array, 0, newArray, 0, index);
+            System.arraycopy(array, index + 1, array, index, array.length - index - 1);
+            array[array.length - 1] = null;
+//            array = newArray;
         }
 
         public T get(int index) {
@@ -55,3 +58,8 @@ public class JC6113 {
         }
     }
 }
+
+//T [] newArray = (T[])new Object[array.length - 1];
+//System.arraycopy(array, 0, newArray, 0, index);
+//System.arraycopy(array, index + 1, newArray, index, array.length - index - 1);
+//array = newArray;
